@@ -1,0 +1,1 @@
+const String profilePic = 'assets/images/kafipic1.png';
