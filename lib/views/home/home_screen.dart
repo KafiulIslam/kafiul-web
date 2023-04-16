@@ -3,8 +3,10 @@ import 'package:kafi_website/utils/image_path.dart';
 import 'package:kafi_website/utils/spacer.dart';
 import 'package:kafi_website/utils/text_string.dart';
 import 'package:kafi_website/utils/typography.dart';
+import 'package:kafi_website/widgets/app_card.dart';
 import 'package:kafi_website/widgets/component/buttons/primary_button.dart';
 import 'package:kafi_website/widgets/experience_card.dart';
+import 'package:kafi_website/widgets/project_card.dart';
 import 'package:kafi_website/widgets/stack_item.dart';
 import '../../utils/color.dart';
 
@@ -26,10 +28,14 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               _header(),
-              primaryVSpacer,
+              sixtyFourVSpacer,
               _techStack(),
-              primaryVSpacer,
+              sixtyFourVSpacer,
               _experience(),
+              sixtyFourVSpacer,
+              _projects(),
+              sixtyFourVSpacer,
+              _liveApps(),
             ],
           ),
         ),
@@ -228,4 +234,87 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
+ Column _projects() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Projects',
+          style: header1,
+        ),
+        sixteenVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            ProjectCard(
+              title: 'Batch Learn',
+              url: 'https://github.com/boom-devs/batch-learn-mobile',
+              description: batchLearnDes,
+            ),
+            ProjectCard(
+              title: 'Sophia',
+              url: 'https://github.com/KafiulIslam/chat_gpt',
+              description: sophiaDes,
+            ),
+            ProjectCard(
+              title: 'FitJerk',
+              url: 'https://github.com/KafiulIslam/fitjerk_android',
+              description: fitJerkDes,
+            ),
+          ],
+        ),
+        primaryVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            ProjectCard(
+              title: 'Global News',
+              url: 'https://github.com/KafiulIslam/online_news',
+              description: newsDes,
+            ),
+            ProjectCard(
+              title: 'WedPlan',
+              url: 'https://github.com/KafiulIslam/wed_plan',
+              description: wedPlanDes,
+            ),
+            ProjectCard(
+              title: 'BMI Meter',
+              url: 'https://github.com/KafiulIslam/body_mass_index',
+              description: bmiDes,
+            ),
+          ],
+        ),
+      ],
+    );
+ }
+
+ Column _liveApps() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Live Apps',
+          style: header1,
+        ),
+        sixteenVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            AppCard(title: 'Batch Learn', url: '', description: batchAppDes,),
+            AppCard(title: 'Batch Learn', url: '', description: batchAppDes,),
+          ],
+        ),
+        primaryVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            AppCard(title: 'Batch Learn', url: '', description: batchAppDes,),
+            AppCard(title: 'Batch Learn', url: '', description: batchAppDes,),
+          ],
+        ),
+      ],
+    );
+ }
+
 }
