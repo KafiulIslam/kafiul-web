@@ -4,8 +4,8 @@ import 'package:kafi_website/utils/spacer.dart';
 import 'package:kafi_website/utils/text_string.dart';
 import 'package:kafi_website/utils/typography.dart';
 import 'package:kafi_website/widgets/component/buttons/primary_button.dart';
+import 'package:kafi_website/widgets/experience_card.dart';
 import 'package:kafi_website/widgets/stack_item.dart';
-
 import '../../utils/color.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,6 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
               _header(),
               primaryVSpacer,
               _techStack(),
+              primaryVSpacer,
+              _experience(),
             ],
           ),
         ),
@@ -88,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
+        const Text(
           'My Tech Stack',
           style: header1,
         ),
@@ -107,26 +109,121 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
-                  StackItem(imagePath: flutter, name: 'Flutter',),
-                  StackItem(imagePath: dart, name: 'Dart',),
-                  StackItem(imagePath: firebase, name: 'Firebase',),
-                  StackItem(imagePath: flutterFlow, name: 'FlutterFlow',),
-                  StackItem(imagePath: javascript, name: 'Javascript',),
-                  StackItem(imagePath: html, name: 'HTML',),
-                ],),
+                  children: const [
+                    StackItem(
+                      imagePath: flutter,
+                      name: 'Flutter',
+                    ),
+                    StackItem(
+                      imagePath: dart,
+                      name: 'Dart',
+                    ),
+                    StackItem(
+                      imagePath: firebase,
+                      name: 'Firebase',
+                    ),
+                    StackItem(
+                      imagePath: flutterFlow,
+                      name: 'FlutterFlow',
+                    ),
+                    StackItem(
+                      imagePath: javascript,
+                      name: 'Javascript',
+                    ),
+                    StackItem(
+                      imagePath: html,
+                      name: 'HTML',
+                    ),
+                  ],
+                ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [StackItem(imagePath: css, name: 'CSS',),
-                  StackItem(imagePath: c, name: 'C',),
-                  StackItem(imagePath: cPlus, name: "C++",),
-                  StackItem(imagePath: github, name: "GitHub",),
-                  StackItem(imagePath: androidStudio, name:  "Android\nStudio",),
-                  StackItem(imagePath: vsCode, name: 'VS Code',),
-                  StackItem(imagePath: figma, name: 'Figma',)],)
+                  children: const [
+                    StackItem(
+                      imagePath: css,
+                      name: 'CSS',
+                    ),
+                    StackItem(
+                      imagePath: c,
+                      name: 'C',
+                    ),
+                    StackItem(
+                      imagePath: cPlus,
+                      name: "C++",
+                    ),
+                    StackItem(
+                      imagePath: github,
+                      name: "GitHub",
+                    ),
+                    StackItem(
+                      imagePath: androidStudio,
+                      name: "Android\nStudio",
+                    ),
+                    StackItem(
+                      imagePath: vsCode,
+                      name: 'VS Code',
+                    ),
+                    StackItem(
+                      imagePath: figma,
+                      name: 'Figma',
+                    )
+                  ],
+                )
               ],
             ),
           ),
+        ),
+      ],
+    );
+  }
+
+  Column _experience() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Experience',
+          style: header1,
+        ),
+        sixteenVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            ExperienceCard(
+              title: 'Flutter Developer',
+              date: 'April 2023 - Present',
+              companyName: 'Dowell Research Lab',
+              url: 'https://dowellresearch.sg/',
+              description: dowelDes,
+            ),
+            ExperienceCard(
+              title: 'Flutter iOS & Android Developer',
+              date: 'July 2022 - March 2023',
+              companyName: 'BoomDevs',
+              url: 'https://boomdevs.com/',
+              description: boomDevsDes,
+            ),
+          ],
+        ),
+        primaryVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            ExperienceCard(
+              title: 'Flutter iOS & Android Developer',
+              date: 'March 2022 - July 2022',
+              companyName: 'Pandascrow',
+              url: 'https://pandascrow.io/',
+              description: pandaDes,
+            ),
+            ExperienceCard(
+              title: 'Flutter iOS & Android Developer',
+              date: 'February 2022 - Present ',
+              companyName: 'Upwork',
+              url: 'https://www.upwork.com/freelancers/~0187ae466cfd442ad7',
+              description: upworkDes,
+            ),
+          ],
         ),
       ],
     );

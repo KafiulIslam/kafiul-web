@@ -1,5 +1,12 @@
 const String welcome = 'Welcome to\nKafiul Islam World !';
 const String bio =
     "I am a professional Flutter Android & iOS developer with several years of working experience. I've contributed to numerous releases of Android & iOS applications for clients ranging from startups to global corporations. I am proficient in Dart as well as Flutter. Besides, I have sound knowledge of C, C++, HTML, CSS, and Javascript . I have extensive experience of building pixel-perfect and responsive UI, proper state management, and API integration to make the app full-functional. I have built so many apps and most of them are now live in Google Play Store. Besides, I have sound knowledge and expertise in Firebase, Android Studio, Visual Studio Code, Adobe XD, Figma, GitHub so on. I am well familiar with some project management and communication toolkits like Jira, ClickUp, Slack, Discord, etc. I'm ready to help and bring your ideas into reality, so don't hesitate in reaching me out to discuss your concerns.";
-const String linkedIn = 'https://www.linkedin.com/in/md-kafiul-islam-902229230/';
-const String resume = 'https://drive.google.com/file/d/1QLs0m_9xHDQO8soLmsgfvOArAD70v6JE/view?usp=share_link';
+const String linkedIn =
+    'https://www.linkedin.com/in/md-kafiul-islam-902229230/';
+const String resume =
+    'https://drive.google.com/file/d/1QLs0m_9xHDQO8soLmsgfvOArAD70v6JE/view?usp=share_link';
+const String dowelDes =
+    "Currently I am working for Dowell Research Lab, Singapore branch. I am working with them as flutter developer. My current project is in building in FlutterFlow. So, I am building the current app using FlutterFlow. I am enjoying wokring with a new stack and a new dynamic team.";
+const String boomDevsDes = "I have got the chance of working in a renown company named BoomDevs. I have learnt so many things from the journey with BoomDevs. I have built three complex and gigantic projects for their clients which increased my skill level as well as confidence. I handle the whole project alone with having pixel perfect responsive UI building, implementing flutter animation, make the app fully function and integrate API using Dio.";
+const String pandaDes = "I have got the chance to work with a multinational Nigerian company named Pandascrow. Basically, it was a three months internship opportunity. Basically, working with pandascrow make my development base stronger. Because there were some senior, expert and genious developer. I learnt various flutter best practices, I learnt to manage work pressure, client handling, proper comunitcating.";
+const String upworkDes = "I have been working at Upwork online freelancing market place. I have built so many projects in Upwork with 100% client satisfaction. Though working in market place is so challenging but I am ready to convert your idea into reality. Feel free to knock me in Upwork and share your concern";

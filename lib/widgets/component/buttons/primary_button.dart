@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kafi_website/utils/color.dart';
+import 'package:kafi_website/utils/constantFile/launcher.dart';
 import 'package:kafi_website/utils/typography.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,19 +15,11 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Future<void> _launchInBrowser(String fileUrl) async {
-      final Uri _url = Uri.parse(fileUrl);
-      if (!await launchUrl(
-        _url,
-        mode: LaunchMode.externalApplication,
-      )) {
-        throw 'Could not launch $_url';
-      }
-    }
+
 
     return InkWell(
       onTap: (){
-        _launchInBrowser(url!);
+        Launcher.launchInBrowser(url!);
       },
       child: Container(
         height: 55,

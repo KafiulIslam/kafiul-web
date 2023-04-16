@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'color.dart';
+import '../color.dart';
 
 final inputFieldBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(10.0),
