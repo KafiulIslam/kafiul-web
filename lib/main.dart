@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
       title: 'Website',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        useMaterial3: true,
         scaffoldBackgroundColor: white
       ),
       home: const HomeScreen(),
