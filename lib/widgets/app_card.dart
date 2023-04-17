@@ -13,6 +13,7 @@ class AppCard extends StatelessWidget {
   final String? description;
   final String? image;
   final double imageSize;
+  final bool isLarge;
 
   const AppCard(
       {Key? key,
@@ -21,7 +22,8 @@ class AppCard extends StatelessWidget {
       this.previewUrl,
       this.description,
       this.image,
-      this.imageSize = 200.0})
+      this.imageSize = 200.0,
+      this.isLarge = true})
       : super(key: key);
 
   @override
@@ -59,26 +61,28 @@ class AppCard extends StatelessWidget {
                       url: downloadUrl,
                     ),
                     sixteenHSpacer,
-                    PrimaryButton(
+                    isLarge == true ? PrimaryButton(
                       buttonTitle: 'Preview',
                       icon: Icons.play_circle_outline,
                       url: previewUrl,
-                    ),
+                    ) : SizedBox.shrink(),
                   ],
                 )
               ],
             ),
           ),
         ),
-        Padding(
+        isLarge == true ? Padding(
           padding: const EdgeInsets.all(16.0),
           child: Image.asset(
             image!,
-            height: 200,
-            width: 200,
+            height: imageSize,
+            width: imageSize,
           ),
-        ),
+        ) : SizedBox.shrink(),
       ],
     ),);
+
+
   }
 }

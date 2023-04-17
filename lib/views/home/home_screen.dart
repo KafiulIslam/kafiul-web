@@ -3,11 +3,14 @@ import 'package:kafi_website/utils/image_path.dart';
 import 'package:kafi_website/utils/spacer.dart';
 import 'package:kafi_website/utils/text_string.dart';
 import 'package:kafi_website/utils/typography.dart';
+import 'package:kafi_website/widgets/address_tile.dart';
 import 'package:kafi_website/widgets/app_card.dart';
 import 'package:kafi_website/widgets/component/buttons/primary_button.dart';
 import 'package:kafi_website/widgets/experience_card.dart';
 import 'package:kafi_website/widgets/project_card.dart';
+import 'package:kafi_website/widgets/reach_button.dart';
 import 'package:kafi_website/widgets/stack_item.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../utils/color.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,44 +23,77 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
 
     return SafeArea(
-        child: Scaffold(
-      body: Stack(children: [
-        Expanded(child: Image.asset(webBack)),
-        SingleChildScrollView(
-          child: Column(children: [
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Column(
-                children: [
-                  _header(),
-                  sixtyFourVSpacer,
-                  _techStack(),
-                  sixtyFourVSpacer,
-                  _experience(),
-                  sixtyFourVSpacer,
-                  _projects(),
-                  sixtyFourVSpacer,
-                  _liveApps(),
-                ],
-              ),
-            ),
-            SizedBox(height: 64.0,),
-            Divider(color: primaryColor),
-            SizedBox(height: 64.0,),
-            Container(height: 200,width: double.infinity,color: primaryColor,)
-          ],)
-        )
-      ],),
-    ));
+        child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              if(constraints.maxWidth > 1530){
+                return Scaffold(
+                  body: Stack(
+                    children: [
+                      Expanded(child: Image.asset(webBack)),
+                      SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(32.0),
+                                child: Column(
+                                  children: [
+                                    _headerForLargeScreen(),
+                                    sixtyFourVSpacer,
+                                    _techStack(),
+                                    sixtyFourVSpacer,
+                                    _experience(),
+                                    sixtyFourVSpacer,
+                                    _projects(),
+                                    sixtyFourVSpacer,
+                                    _liveApps(),
+                                  ],
+                                ),
+                              ),
+                              _footer(),
+                            ],
+                          ))
+                    ],
+                  ),
+                );
+              } else{
+                return Scaffold(
+                  body: Stack(
+                    children: [
+                      Expanded(child: Image.asset(webBack)),
+                      SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(32.0),
+                                child: Column(
+                                  children: [
+                                    _headerForSmallScreen(),
+                                    sixtyFourVSpacer,
+                                    _techStack(),
+                                    sixtyFourVSpacer,
+                                    _experience(),
+                                    sixtyFourVSpacer,
+                                    _projects(),
+                                    sixtyFourVSpacer,
+                                    _liveAppsForSmallScreen(),
+                                  ],
+                                ),
+                              ),
+                              _footer(),
+                            ],
+                          ))
+                    ],
+                  ),
+                );
+              }
+            }));
   }
 
-  Row _header() {
-
+  Row _headerForLargeScreen() {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
 
@@ -73,20 +109,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 text: const TextSpan(
                   text: "Welcome to\n",
                   style: TextStyle(
-                      color: black,
-                      fontSize: 50,
-                      fontWeight: FontWeight.w600),
-                  children:   <TextSpan>[
-                      TextSpan(
-                        text: 'Kafiul Islam ', style: TextStyle(
-                        color: primaryColor,
-                        fontSize: 50,
-                        fontWeight: FontWeight.w600)),
-                    TextSpan(text: "World!", style: TextStyle(
-                        color: black,
-                        fontSize: 50,
-                        fontWeight: FontWeight.w600),
-
+                      color: black, fontSize: 50, fontWeight: FontWeight.w600),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: 'Kafiul Islam ',
+                        style: TextStyle(
+                            color: primaryColor,
+                            fontSize: 50,
+                            fontWeight: FontWeight.w600)),
+                    TextSpan(
+                      text: "World!",
+                      style: TextStyle(
+                          color: black,
+                          fontSize: 50,
+                          fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -116,6 +152,64 @@ class _HomeScreenState extends State<HomeScreen> {
                       url: resume),
                 ],
               ),
+            ],
+          ),
+        ),
+        Image.asset(profilePic, width: screenWidth / 2.5),
+      ],
+    );
+  }
+
+  Row _headerForSmallScreen() {
+
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          width: screenWidth / 2,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              RichText(
+                text: const TextSpan(
+                  text: "Welcome to\n",
+                  style: TextStyle(
+                      color: black, fontSize: 50, fontWeight: FontWeight.w600),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: 'Kafiul Islam ',
+                        style: TextStyle(
+                            color: primaryColor,
+                            fontSize: 50,
+                            fontWeight: FontWeight.w600)),
+                    TextSpan(
+                      text: "World!",
+                      style: TextStyle(
+                          color: black,
+                          fontSize: 50,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+              ),
+              primaryVSpacer,
+              const Text(
+                'Flutter Android & iOS Developer',
+                style: header2,
+              ),
+              sixteenVSpacer,
+              const Text(
+                bio,
+                style: bodyTextStyle,
+              ),
+              sixteenVSpacer,
+              const PrimaryButton(
+                  icon: Icons.download_for_offline_sharp,
+                  buttonTitle: 'Download Resume',
+                  url: resume),
             ],
           ),
         ),
@@ -343,7 +437,7 @@ class _HomeScreenState extends State<HomeScreen> {
             AppCard(
                 title: 'FitJerk',
                 downloadUrl:
-                'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
+                    'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
                 previewUrl: 'https://youtu.be/hU2QY7KJ0rs',
                 description: fitJerkDes,
                 image: fitJerkIcon),
@@ -356,18 +450,18 @@ class _HomeScreenState extends State<HomeScreen> {
             AppCard(
                 title: 'Sophia',
                 downloadUrl:
-                'https://play.google.com/store/apps/details?id=com.kafi.sophia',
+                    'https://play.google.com/store/apps/details?id=com.kafi.sophia',
                 previewUrl: 'https://youtu.be/Wb3CuCauGJk',
                 description: sophiaAppDes,
                 image: sophiaAppIcon),
             AppCard(
-                title: 'Global News',
-                downloadUrl:
-                'https://play.google.com/store/apps/details?id=com.kafi.globalnews',
-                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-                description: globalNewsAppDes,
-                image: newsAppIcon,
-                imageSize: 100,
+              title: 'Global News',
+              downloadUrl:
+                  'https://play.google.com/store/apps/details?id=com.kafi.globalnews',
+              previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+              description: globalNewsAppDes,
+              image: newsAppIcon,
+              imageSize: 150,
             ),
           ],
         ),
@@ -376,25 +470,195 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
             AppCard(
-                title: 'BMI Meter',
-                downloadUrl:
-                'https://play.google.com/store/apps/details?id=com.bmi.meter',
-                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-                description: bmiAppdes,
-                image: bmiAppIcon,
-              imageSize: 100,),
+              title: 'BMI Meter',
+              downloadUrl:
+                  'https://play.google.com/store/apps/details?id=com.bmi.meter',
+              previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+              description: bmiAppdes,
+              image: bmiAppIcon,
+              imageSize: 150,
+            ),
             AppCard(
-                title: 'Weather Check',
-                downloadUrl:
-                'https://play.google.com/store/apps/details?id=com.weather.check.app',
-                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-                description: weatherAppDes,
-                image: weatherAppIcon,
-              imageSize: 100,),
+              title: 'Weather Check',
+              downloadUrl:
+                  'https://play.google.com/store/apps/details?id=com.weather.check.app',
+              previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+              description: weatherAppDes,
+              image: weatherAppIcon,
+              imageSize: 150,
+            ),
           ],
         ),
       ],
     );
   }
+
+  Column _footer() {
+    return Column(
+      children: [
+        const SizedBox(
+          height: 64.0,
+        ),
+        Container(
+          height: 200,
+          width: double.infinity,
+          color: primaryColor,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 26.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    AddressTile(
+                      icon: Icons.email_outlined,
+                      data: 'kafiulislam135@gmail.com',
+                    ),
+                    sixteenVSpacer,
+                    AddressTile(
+                      icon: Icons.phone,
+                      data: '+8801628924397',
+                    ),
+                    sixteenVSpacer,
+                    AddressTile(
+                      icon: MdiIcons.whatsapp,
+                      data: '+8801628924397',
+                    ),
+                    sixteenVSpacer,
+                    AddressTile(
+                      icon: Icons.my_location,
+                      data: 'Bogura, Rajshahi, Bangladesh',
+                    )
+                  ],
+                ),
+              ),
+             Padding(
+               padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 64.0),
+               child: Container(width: 2.0, color: white,),
+             ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                Text('Reach Me -', style: fourteenWhiteStyle,),
+                SizedBox(width: 8.0,),
+                ReachButton(
+                    icon: MdiIcons.linkedin,
+                    url:
+                    'https://www.linkedin.com/in/md-kafiul-islam-902229230/'),
+                ReachButton(
+                    icon: MdiIcons.twitter  ,
+                    url:
+                    'https://twitter.com/KafiulIslam3'),
+                ReachButton(
+                    icon: MdiIcons.github,
+                    url:
+                    'https://github.com/KafiulIslam'),
+                ReachButton(
+                    icon: MdiIcons.quora,
+                    url:
+                    'https://www.quora.com/profile/Kafiul-Islam-1'),
+                ReachButton(
+                    icon: Icons.facebook,
+                    url:
+                    'https://www.facebook.com/mrkafi1/'),
+                ReachButton(
+                    icon: MdiIcons.youtube,
+                    url:
+                    'https://www.youtube.com/channel/UCdrNnxwLOX5UwmzLa-gGLqA'),
+              ],)
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+ Column _liveAppsForSmallScreen() {
+   return Column(
+     crossAxisAlignment: CrossAxisAlignment.start,
+     children: [
+       const Text(
+         'Live Apps',
+         style: header1,
+       ),
+       sixteenVSpacer,
+       Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         children: const [
+           AppCard(
+               title: 'Batch Learn',
+               downloadUrl:
+               'https://play.google.com/store/apps/details?id=com.batch_learn.axisedu',
+               previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+               description: batchAppDes,
+               image: batchIcon,
+              isLarge: false,
+           ),
+           AppCard(
+               title: 'FitJerk',
+               downloadUrl:
+               'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
+               previewUrl: 'https://youtu.be/hU2QY7KJ0rs',
+               description: fitJerkDes,
+               image: fitJerkIcon,
+             isLarge: false),
+         ],
+       ),
+       primaryVSpacer,
+       Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         children: const [
+           AppCard(
+               title: 'Sophia',
+               downloadUrl:
+               'https://play.google.com/store/apps/details?id=com.kafi.sophia',
+               previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+               description: sophiaAppDes,
+               image: sophiaAppIcon,
+               isLarge: false),
+           AppCard(
+             title: 'Global News',
+             downloadUrl:
+             'https://play.google.com/store/apps/details?id=com.kafi.globalnews',
+             previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+             description: globalNewsAppDes,
+             image: newsAppIcon,
+             imageSize: 150,
+               isLarge: false
+           ),
+         ],
+       ),
+       primaryVSpacer,
+       Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         children: const [
+           AppCard(
+             title: 'BMI Meter',
+             downloadUrl:
+             'https://play.google.com/store/apps/details?id=com.bmi.meter',
+             previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+             description: bmiAppdes,
+             image: bmiAppIcon,
+             imageSize: 150,
+               isLarge: false
+           ),
+           AppCard(
+             title: 'Weather Check',
+             downloadUrl:
+             'https://play.google.com/store/apps/details?id=com.weather.check.app',
+             previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+             description: weatherAppDes,
+             image: weatherAppIcon,
+             imageSize: 150,
+               isLarge: false
+           ),
+         ],
+       ),
+     ],
+   );
+ }
 
 }

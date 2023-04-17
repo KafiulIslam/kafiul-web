@@ -15,8 +15,6 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
-
     return InkWell(
       onTap: (){
         Launcher.launchInBrowser(url!);
@@ -36,6 +34,7 @@ class PrimaryButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32.0),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 icon!,
