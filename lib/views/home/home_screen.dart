@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return Scaffold(
                   body: Stack(
                     children: [
-                      Expanded(child: Image.asset(webBack)),
+                      Image.asset(webBack, height: screenHeight,width: screenWidth,),
                       SingleChildScrollView(
                           child: Column(
                             children: [
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return Scaffold(
                   body: Stack(
                     children: [
-                      Expanded(child: Image.asset(webBack)),
+                      Image.asset(webBack, height: screenHeight,width: screenWidth,),
                       SingleChildScrollView(
                           child: Column(
                             children: [
