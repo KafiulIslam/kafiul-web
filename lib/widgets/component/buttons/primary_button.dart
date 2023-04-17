@@ -22,7 +22,7 @@ class PrimaryButton extends StatelessWidget {
         Launcher.launchInBrowser(url!);
       },
       child: Container(
-        height: 55,
+        height: 50,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             gradient: const LinearGradient(

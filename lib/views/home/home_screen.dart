@@ -20,30 +20,44 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return SafeArea(
         child: Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Column(
-            children: [
-              _header(),
-              sixtyFourVSpacer,
-              _techStack(),
-              sixtyFourVSpacer,
-              _experience(),
-              sixtyFourVSpacer,
-              _projects(),
-              sixtyFourVSpacer,
-              _liveApps(),
-            ],
-          ),
-        ),
-      ),
+      body: Stack(children: [
+        Expanded(child: Image.asset(webBack)),
+        SingleChildScrollView(
+          child: Column(children: [
+            Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Column(
+                children: [
+                  _header(),
+                  sixtyFourVSpacer,
+                  _techStack(),
+                  sixtyFourVSpacer,
+                  _experience(),
+                  sixtyFourVSpacer,
+                  _projects(),
+                  sixtyFourVSpacer,
+                  _liveApps(),
+                ],
+              ),
+            ),
+            SizedBox(height: 64.0,),
+            Divider(color: primaryColor),
+            SizedBox(height: 64.0,),
+            Container(height: 200,width: double.infinity,color: primaryColor,)
+          ],)
+        )
+      ],),
     ));
   }
 
   Row _header() {
+
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
 
@@ -55,17 +69,35 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                welcome,
-                style: header1,
+              RichText(
+                text: const TextSpan(
+                  text: "Welcome to\n",
+                  style: TextStyle(
+                      color: black,
+                      fontSize: 50,
+                      fontWeight: FontWeight.w600),
+                  children:   <TextSpan>[
+                      TextSpan(
+                        text: 'Kafiul Islam ', style: TextStyle(
+                        color: primaryColor,
+                        fontSize: 50,
+                        fontWeight: FontWeight.w600)),
+                    TextSpan(text: "World!", style: TextStyle(
+                        color: black,
+                        fontSize: 50,
+                        fontWeight: FontWeight.w600),
+
+                    ),
+                  ],
+                ),
               ),
               primaryVSpacer,
-              Text(
+              const Text(
                 'Flutter Android & iOS Developer',
                 style: header2,
               ),
               sixteenVSpacer,
-              Text(
+              const Text(
                 bio,
                 style: bodyTextStyle,
               ),
@@ -364,4 +396,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
 }

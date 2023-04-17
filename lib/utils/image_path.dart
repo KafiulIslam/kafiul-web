@@ -18,6 +18,8 @@ const String sophiaAppIcon = 'assets/images/sophia.png';
 const String newsAppIcon = 'assets/images/news.png';
 const String bmiAppIcon = 'assets/images/bmi.png';
 const String weatherAppIcon = 'assets/images/weather.png';
+const String webBack = 'assets/images/web_back.png';
+
 
 
 
