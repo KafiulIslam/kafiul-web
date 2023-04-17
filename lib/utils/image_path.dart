@@ -12,4 +12,13 @@ const String github = 'assets/images/github.png';
 const String html = 'assets/images/html.png';
 const String javascript = 'assets/images/javascript.png';
 const String vsCode = 'assets/images/vs_code.png';
+const String batchIcon = 'assets/images/batch_icon.png';
+const String fitJerkIcon = 'assets/images/fitjerk.png';
+const String sophiaAppIcon = 'assets/images/sophia.png';
+const String newsAppIcon = 'assets/images/news.png';
+const String bmiAppIcon = 'assets/images/bmi.png';
+const String weatherAppIcon = 'assets/images/weather.png';
+
+
+
 

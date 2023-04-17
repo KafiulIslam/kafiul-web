@@ -235,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
- Column _projects() {
+  Column _projects() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -287,9 +287,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
     );
- }
+  }
 
- Column _liveApps() {
+  Column _liveApps() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -301,20 +301,67 @@ class _HomeScreenState extends State<HomeScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
-            AppCard(title: 'Batch Learn', url: '', description: batchAppDes,),
-            AppCard(title: 'Batch Learn', url: '', description: batchAppDes,),
+            AppCard(
+                title: 'Batch Learn',
+                downloadUrl:
+                    'https://play.google.com/store/apps/details?id=com.batch_learn.axisedu',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: batchAppDes,
+                image: batchIcon),
+            AppCard(
+                title: 'FitJerk',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
+                previewUrl: 'https://youtu.be/hU2QY7KJ0rs',
+                description: fitJerkDes,
+                image: fitJerkIcon),
           ],
         ),
         primaryVSpacer,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
-            AppCard(title: 'Batch Learn', url: '', description: batchAppDes,),
-            AppCard(title: 'Batch Learn', url: '', description: batchAppDes,),
+            AppCard(
+                title: 'Sophia',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.kafi.sophia',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: sophiaAppDes,
+                image: sophiaAppIcon),
+            AppCard(
+                title: 'Global News',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.kafi.globalnews',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: globalNewsAppDes,
+                image: newsAppIcon,
+                imageSize: 100,
+            ),
+          ],
+        ),
+        primaryVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            AppCard(
+                title: 'BMI Meter',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.bmi.meter',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: bmiAppdes,
+                image: bmiAppIcon,
+              imageSize: 100,),
+            AppCard(
+                title: 'Weather Check',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.weather.check.app',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: weatherAppDes,
+                image: weatherAppIcon,
+              imageSize: 100,),
           ],
         ),
       ],
     );
- }
-
+  }
 }
