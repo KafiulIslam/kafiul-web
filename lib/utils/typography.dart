@@ -1,98 +1,113 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'color.dart';
 
-const header1 = TextStyle(
+final header1 = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontSize: 50.0,
   color: black,
   fontWeight: FontWeight.w800,
-);
+));
 
-const header2 = TextStyle(
+final header2 = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontSize: 25.0,
   color: black,
   fontWeight: FontWeight.w800,
-);
+));
 
-const appbarTitle = TextStyle(
+final appbarTitle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w800,
   fontSize: 20,
   color: white,
   letterSpacing: 1,
-);
+));
 
-const bodyTextStyle = TextStyle(
-
+final bodyTextStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontSize: 16,
   color: black,
   letterSpacing: 1,
-);
+));
 
-const sixteenRedStyle = TextStyle(
+final sixteenRedStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 16,
   color: red,
   letterSpacing: 1,
-);
-const fourteenRedStyle = TextStyle(
+));
+final fourteenRedStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 14,
   color: red,
   letterSpacing: 1,
-);
+));
 
-const sixteenDeepAssStyle = TextStyle(
+final sixteenDeepAssStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 16,
   color: deepAssTextColor,
-);
-const fourteenDeepAssStyle = TextStyle(
+));
+final fourteenDeepAssStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 14,
   color: deepAssTextColor,
-);
+));
 
-const sixteenBlackStyle = TextStyle(
+final sixteenBlackStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 16,
   color: black,
   letterSpacing: 1,
-);
-const fourteenBlackStyle = TextStyle(
+));
+final fourteenBlackStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 14,
   color: black,
   letterSpacing: 1,
-);
+));
 
-const sixteenWhiteStyle = TextStyle(
+final sixteenWhiteStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 16,
   color: white,
   letterSpacing: 1,
-);
-const fourteenWhiteStyle = TextStyle(
+));
+final fourteenWhiteStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 14,
   color: white,
   letterSpacing: 1,
-);
+));
 
-const rowInfoTextStyle = TextStyle(
+final rowInfoTextStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 14,
   color: darkGrey,
-);
+));
 
-const onBoardSixteenStyle = TextStyle(
+final onBoardSixteenStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 16,
   color: Colors.white,
   letterSpacing: 1,
-);
+));
 
-const onBoardFourteenStyle = TextStyle(
+final onBoardFourteenStyle = GoogleFonts.poppins(
+    textStyle: const TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 14,
   color: Colors.white,
   letterSpacing: 1,
-);
+));

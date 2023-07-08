@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'Kafiul Islam',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: white
+        scaffoldBackgroundColor: white,
       ),
       home: const HomeScreen(),
     );

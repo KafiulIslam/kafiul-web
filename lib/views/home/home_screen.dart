@@ -144,12 +144,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               primaryVSpacer,
-              const Text(
+              Text(
                 'Flutter Android & iOS Developer',
                 style: header2,
               ),
               sixteenVSpacer,
-              const Text(
+              Text(
                 bio,
                 style: bodyTextStyle,
               ),
@@ -220,12 +220,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               primaryVSpacer,
-              const Text(
+                Text(
                 'Flutter Android & iOS Developer',
                 style: header2,
               ),
               sixteenVSpacer,
-              const Text(
+                Text(
                 bio,
                 style: bodyTextStyle,
               ),
@@ -254,7 +254,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           'My Tech Stack',
           style: header1,
         ),
@@ -342,7 +342,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Column _experience() {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -350,7 +350,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: header1,
         ),
         sixteenVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ExperienceCard(
@@ -370,7 +370,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         primaryVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ExperienceCard(
@@ -394,7 +394,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Column _projects() {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -402,7 +402,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: header1,
         ),
         sixteenVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ProjectCard(
@@ -423,7 +423,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         primaryVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ProjectCard(
@@ -448,7 +448,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Column _liveApps() {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -456,7 +456,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: header1,
         ),
         sixteenVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppCard(
@@ -476,7 +476,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         primaryVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppCard(
@@ -498,7 +498,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         primaryVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppCard(
@@ -539,17 +539,17 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 26.0),
+              Padding(
+                padding: const EdgeInsets.only(top: 26.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AddressTile(
+                    const AddressTile(
                       icon: Icons.email_outlined,
                       data: 'kafiulislam135@gmail.com',
                     ),
                     sixteenVSpacer,
-                    AddressTile(
+                    const AddressTile(
                       icon: Icons.phone,
                       data: '+8801628924397',
                     ),
@@ -559,7 +559,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       data: '+8801628924397',
                     ),
                     sixteenVSpacer,
-                    AddressTile(
+                    const AddressTile(
                       icon: Icons.my_location,
                       data: 'Bogura, Rajshahi, Bangladesh',
                     )
@@ -574,7 +574,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: white,
                 ),
               ),
-              const Row(
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -582,7 +582,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     'Reach Me -',
                     style: fourteenWhiteStyle,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8.0,
                   ),
                   ReachButton(
@@ -598,7 +598,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ReachButton(
                       icon: MdiIcons.quora,
                       url: 'https://www.quora.com/profile/Kafiul-Islam-1'),
-                  ReachButton(
+                  const ReachButton(
                       icon: Icons.facebook,
                       url: 'https://www.facebook.com/mrkafi1/'),
                   ReachButton(
@@ -615,7 +615,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Column _liveAppsForSmallScreen() {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -623,7 +623,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: header1,
         ),
         sixteenVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppCard(
@@ -646,7 +646,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         primaryVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppCard(
@@ -669,7 +669,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         primaryVSpacer,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppCard(
