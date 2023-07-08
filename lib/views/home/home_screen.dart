@@ -11,6 +11,7 @@ import 'package:kafi_website/widgets/project_card.dart';
 import 'package:kafi_website/widgets/reach_button.dart';
 import 'package:kafi_website/widgets/stack_item.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../../utils/color.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,76 +22,91 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  final _controller = YoutubePlayerController.fromVideoId(
+    videoId: 'utbH26hlTRA',
+    autoPlay: true,
+    params: const YoutubePlayerParams(showFullscreenButton: true),
+  );
+
   @override
   Widget build(BuildContext context) {
+
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
 
-    return SafeArea(
-        child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              if(constraints.maxWidth > 1530){
-                return Scaffold(
-                  body: Stack(
-                    children: [
-                      Image.asset(webBack, height: screenHeight,width: screenWidth,),
-                      SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(32.0),
-                                child: Column(
-                                  children: [
-                                    _headerForLargeScreen(),
-                                    sixtyFourVSpacer,
-                                    _techStack(),
-                                    sixtyFourVSpacer,
-                                    _experience(),
-                                    sixtyFourVSpacer,
-                                    _projects(),
-                                    sixtyFourVSpacer,
-                                    _liveApps(),
-                                  ],
-                                ),
-                              ),
-                              _footer(),
-                            ],
-                          ))
-                    ],
+    return SafeArea(child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      if (constraints.maxWidth > 1530) {
+        return Scaffold(
+          body: Stack(
+            children: [
+              Image.asset(
+                webBack,
+                height: screenHeight,
+                width: screenWidth,
+              ),
+              SingleChildScrollView(
+                  child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(32.0),
+                    child: Column(
+                      children: [
+                        _headerForLargeScreen(),
+                        sixtyFourVSpacer,
+                        _techStack(),
+                        sixtyFourVSpacer,
+                        _experience(),
+                        sixtyFourVSpacer,
+                        _projects(),
+                        sixtyFourVSpacer,
+                        _liveApps(),
+                      ],
+                    ),
                   ),
-                );
-              } else{
-                return Scaffold(
-                  body: Stack(
-                    children: [
-                      Image.asset(webBack, height: screenHeight,width: screenWidth,),
-                      SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(32.0),
-                                child: Column(
-                                  children: [
-                                    _headerForSmallScreen(),
-                                    sixtyFourVSpacer,
-                                    _techStack(),
-                                    sixtyFourVSpacer,
-                                    _experience(),
-                                    sixtyFourVSpacer,
-                                    _projects(),
-                                    sixtyFourVSpacer,
-                                    _liveAppsForSmallScreen(),
-                                  ],
-                                ),
-                              ),
-                              _footer(),
-                            ],
-                          ))
-                    ],
+                  _footer(),
+                ],
+              ))
+            ],
+          ),
+        );
+      } else {
+        return Scaffold(
+          body: Stack(
+            children: [
+              Image.asset(
+                webBack,
+                height: screenHeight,
+                width: screenWidth,
+              ),
+              SingleChildScrollView(
+                  child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(32.0),
+                    child: Column(
+                      children: [
+                        _headerForSmallScreen(),
+                        sixtyFourVSpacer,
+                        _techStack(),
+                        sixtyFourVSpacer,
+                        _experience(),
+                        sixtyFourVSpacer,
+                        _projects(),
+                        sixtyFourVSpacer,
+                        _liveAppsForSmallScreen(),
+                      ],
+                    ),
                   ),
-                );
-              }
-            }));
+                  _footer(),
+                ],
+              ))
+            ],
+          ),
+        );
+      }
+    }));
   }
 
   Row _headerForLargeScreen() {
@@ -100,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
+        SizedBox(
           width: screenWidth / 2,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,8 +154,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: bodyTextStyle,
               ),
               sixteenVSpacer,
-              Row(
-                children: const [
+              const Row(
+                children: [
                   PrimaryButton(
                     icon: Icons.thumb_up,
                     buttonTitle: 'Hire Me',
@@ -155,7 +171,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-        Image.asset(profilePic, width: screenWidth / 2.5),
+        SizedBox(
+          height: 300,
+          width: screenWidth / 3,
+          child: YoutubePlayer(
+            controller: _controller,
+            //aspectRatio: 16 / 9,
+          ),
+        ),
+        //Image.asset(profilePic, width: screenWidth / 2.5),
       ],
     );
   }
@@ -168,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
+        SizedBox(
           width: screenWidth / 2,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,7 +237,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-        Image.asset(profilePic, width: screenWidth / 2.5),
+        SizedBox(
+      height: 300,
+      width: screenWidth / 3,
+      child: YoutubePlayer(
+      controller: _controller,
+      //aspectRatio: 16 / 9,
+      ),
+    ),
+       // Image.asset(profilePic, width: screenWidth / 2.5),
       ],
     );
   }
@@ -232,8 +264,8 @@ class _HomeScreenState extends State<HomeScreen> {
           color: white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
+          child: const Padding(
+            padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -241,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children: [
                     StackItem(
                       imagePath: flutter,
                       name: 'Flutter',
@@ -270,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children: [
                     StackItem(
                       imagePath: css,
                       name: 'CSS',
@@ -310,17 +342,17 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Column _experience() {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Experience',
           style: header1,
         ),
         sixteenVSpacer,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             ExperienceCard(
               title: 'Flutter Developer',
               date: 'April 2023 - Present',
@@ -340,7 +372,7 @@ class _HomeScreenState extends State<HomeScreen> {
         primaryVSpacer,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             ExperienceCard(
               title: 'Flutter iOS & Android Developer',
               date: 'March 2022 - July 2022',
@@ -362,17 +394,17 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Column _projects() {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Projects',
           style: header1,
         ),
         sixteenVSpacer,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             ProjectCard(
               title: 'Batch Learn',
               url: 'https://github.com/boom-devs/batch-learn-mobile',
@@ -393,7 +425,7 @@ class _HomeScreenState extends State<HomeScreen> {
         primaryVSpacer,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             ProjectCard(
               title: 'Global News',
               url: 'https://github.com/KafiulIslam/online_news',
@@ -416,17 +448,17 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Column _liveApps() {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Live Apps',
           style: header1,
         ),
         sixteenVSpacer,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             AppCard(
                 title: 'Batch Learn',
                 downloadUrl:
@@ -446,7 +478,7 @@ class _HomeScreenState extends State<HomeScreen> {
         primaryVSpacer,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             AppCard(
                 title: 'Sophia',
                 downloadUrl:
@@ -468,7 +500,7 @@ class _HomeScreenState extends State<HomeScreen> {
         primaryVSpacer,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             AppCard(
               title: 'BMI Meter',
               downloadUrl:
@@ -507,11 +539,11 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 26.0),
+              const Padding(
+                padding: EdgeInsets.only(top: 26.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     AddressTile(
                       icon: Icons.email_outlined,
                       data: 'kafiulislam135@gmail.com',
@@ -534,41 +566,47 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-             Padding(
-               padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 64.0),
-               child: Container(width: 2.0, color: white,),
-             ),
-              Row(
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 32.0, horizontal: 64.0),
+                child: Container(
+                  width: 2.0,
+                  color: white,
+                ),
+              ),
+              const Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                Text('Reach Me -', style: fourteenWhiteStyle,),
-                SizedBox(width: 8.0,),
-                ReachButton(
-                    icon: MdiIcons.linkedin,
-                    url:
-                    'https://www.linkedin.com/in/md-kafiul-islam-902229230/'),
-                ReachButton(
-                    icon: MdiIcons.twitter  ,
-                    url:
-                    'https://twitter.com/KafiulIslam3'),
-                ReachButton(
-                    icon: MdiIcons.github,
-                    url:
-                    'https://github.com/KafiulIslam'),
-                ReachButton(
-                    icon: MdiIcons.quora,
-                    url:
-                    'https://www.quora.com/profile/Kafiul-Islam-1'),
-                ReachButton(
-                    icon: Icons.facebook,
-                    url:
-                    'https://www.facebook.com/mrkafi1/'),
-                ReachButton(
-                    icon: MdiIcons.youtube,
-                    url:
-                    'https://www.youtube.com/channel/UCdrNnxwLOX5UwmzLa-gGLqA'),
-              ],)
+                  Text(
+                    'Reach Me -',
+                    style: fourteenWhiteStyle,
+                  ),
+                  SizedBox(
+                    width: 8.0,
+                  ),
+                  ReachButton(
+                      icon: MdiIcons.linkedin,
+                      url:
+                          'https://www.linkedin.com/in/md-kafiul-islam-902229230/'),
+                  ReachButton(
+                      icon: MdiIcons.twitter,
+                      url: 'https://twitter.com/KafiulIslam3'),
+                  ReachButton(
+                      icon: MdiIcons.github,
+                      url: 'https://github.com/KafiulIslam'),
+                  ReachButton(
+                      icon: MdiIcons.quora,
+                      url: 'https://www.quora.com/profile/Kafiul-Islam-1'),
+                  ReachButton(
+                      icon: Icons.facebook,
+                      url: 'https://www.facebook.com/mrkafi1/'),
+                  ReachButton(
+                      icon: MdiIcons.youtube,
+                      url:
+                          'https://www.youtube.com/channel/UCdrNnxwLOX5UwmzLa-gGLqA'),
+                ],
+              )
             ],
           ),
         )
@@ -576,89 +614,86 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
- Column _liveAppsForSmallScreen() {
-   return Column(
-     crossAxisAlignment: CrossAxisAlignment.start,
-     children: [
-       const Text(
-         'Live Apps',
-         style: header1,
-       ),
-       sixteenVSpacer,
-       Row(
-         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-         children: const [
-           AppCard(
-               title: 'Batch Learn',
-               downloadUrl:
-               'https://play.google.com/store/apps/details?id=com.batch_learn.axisedu',
-               previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-               description: batchAppDes,
-               image: batchIcon,
+  Column _liveAppsForSmallScreen() {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Live Apps',
+          style: header1,
+        ),
+        sixteenVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            AppCard(
+              title: 'Batch Learn',
+              downloadUrl:
+                  'https://play.google.com/store/apps/details?id=com.batch_learn.axisedu',
+              previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+              description: batchAppDes,
+              image: batchIcon,
               isLarge: false,
-           ),
-           AppCard(
-               title: 'FitJerk',
-               downloadUrl:
-               'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
-               previewUrl: 'https://youtu.be/hU2QY7KJ0rs',
-               description: fitJerkDes,
-               image: fitJerkIcon,
-             isLarge: false),
-         ],
-       ),
-       primaryVSpacer,
-       Row(
-         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-         children: const [
-           AppCard(
-               title: 'Sophia',
-               downloadUrl:
-               'https://play.google.com/store/apps/details?id=com.kafi.sophia',
-               previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-               description: sophiaAppDes,
-               image: sophiaAppIcon,
-               isLarge: false),
-           AppCard(
-             title: 'Global News',
-             downloadUrl:
-             'https://play.google.com/store/apps/details?id=com.kafi.globalnews',
-             previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-             description: globalNewsAppDes,
-             image: newsAppIcon,
-             imageSize: 150,
-               isLarge: false
-           ),
-         ],
-       ),
-       primaryVSpacer,
-       Row(
-         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-         children: const [
-           AppCard(
-             title: 'BMI Meter',
-             downloadUrl:
-             'https://play.google.com/store/apps/details?id=com.bmi.meter',
-             previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-             description: bmiAppdes,
-             image: bmiAppIcon,
-             imageSize: 150,
-               isLarge: false
-           ),
-           AppCard(
-             title: 'Weather Check',
-             downloadUrl:
-             'https://play.google.com/store/apps/details?id=com.weather.check.app',
-             previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-             description: weatherAppDes,
-             image: weatherAppIcon,
-             imageSize: 150,
-               isLarge: false
-           ),
-         ],
-       ),
-     ],
-   );
- }
+            ),
+            AppCard(
+                title: 'FitJerk',
+                downloadUrl:
+                    'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
+                previewUrl: 'https://youtu.be/hU2QY7KJ0rs',
+                description: fitJerkDes,
+                image: fitJerkIcon,
+                isLarge: false),
+          ],
+        ),
+        primaryVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            AppCard(
+                title: 'Sophia',
+                downloadUrl:
+                    'https://play.google.com/store/apps/details?id=com.kafi.sophia',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: sophiaAppDes,
+                image: sophiaAppIcon,
+                isLarge: false),
+            AppCard(
+                title: 'Global News',
+                downloadUrl:
+                    'https://play.google.com/store/apps/details?id=com.kafi.globalnews',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: globalNewsAppDes,
+                image: newsAppIcon,
+                imageSize: 150,
+                isLarge: false),
+          ],
+        ),
+        primaryVSpacer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            AppCard(
+                title: 'BMI Meter',
+                downloadUrl:
+                    'https://play.google.com/store/apps/details?id=com.bmi.meter',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: bmiAppdes,
+                image: bmiAppIcon,
+                imageSize: 150,
+                isLarge: false),
+            AppCard(
+                title: 'Weather Check',
+                downloadUrl:
+                    'https://play.google.com/store/apps/details?id=com.weather.check.app',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: weatherAppDes,
+                image: weatherAppIcon,
+                imageSize: 150,
+                isLarge: false),
+          ],
+        ),
+      ],
+    );
+  }
 
 }
