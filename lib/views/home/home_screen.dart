@@ -39,15 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxWidth > 1530) {
         return Scaffold(
-          body: Stack(
-            children: [
-              Image.asset(
-                webBack,
-                height: screenHeight,
-                width: screenWidth,
-              ),
-              SingleChildScrollView(
-                  child: Column(
+          body: SingleChildScrollView(
+              child: Column(
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(32.0),
@@ -67,21 +60,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   _footer(),
                 ],
-              ))
-            ],
-          ),
+              )),
+          // Stack(
+          //   children: [
+          //     Image.asset(
+          //       webBack,
+          //       height: screenHeight,
+          //       width: screenWidth,
+          //     ),
+          //
+          //   ],
+          // ),
         );
       } else {
         return Scaffold(
-          body: Stack(
-            children: [
-              Image.asset(
-                webBack,
-                height: screenHeight,
-                width: screenWidth,
-              ),
-              SingleChildScrollView(
-                  child: Column(
+          body: SingleChildScrollView(
+              child: Column(
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(32.0),
@@ -101,17 +95,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   _footer(),
                 ],
-              ))
-            ],
-          ),
+              )),
+          // Stack(
+          //   children: [
+          //     Image.asset(
+          //       webBack,
+          //       height: screenHeight,
+          //       width: screenWidth,
+          //     ),
+          //
+          //   ],
+          // ),
         );
       }
     }));
   }
 
   Row _headerForLargeScreen() {
-    final double screenHeight = MediaQuery.of(context).size.height;
-    final double screenWidth = MediaQuery.of(context).size.width;
+
+     final double screenWidth = MediaQuery.of(context).size.width;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -273,6 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     StackItem(
                       imagePath: flutter,
@@ -291,6 +294,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       name: 'FlutterFlow',
                     ),
                     StackItem(
+                      imagePath: node,
+                      name: 'Node js',
+                    ),
+                    StackItem(
+                      imagePath: express,
+                      name: 'Express js',
+                    ),
+                    StackItem(
+                      imagePath: mongo,
+                      name: 'MongoDB',
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    StackItem(
                       imagePath: javascript,
                       name: 'Javascript',
                     ),
@@ -298,11 +319,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       imagePath: html,
                       name: 'HTML',
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
                     StackItem(
                       imagePath: css,
                       name: 'CSS',
