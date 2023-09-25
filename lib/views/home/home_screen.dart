@@ -61,16 +61,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   _footer(),
                 ],
               )),
-          // Stack(
-          //   children: [
-          //     Image.asset(
-          //       webBack,
-          //       height: screenHeight,
-          //       width: screenWidth,
-          //     ),
-          //
-          //   ],
-          // ),
         );
       } else {
         return Scaffold(
@@ -96,16 +86,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   _footer(),
                 ],
               )),
-          // Stack(
-          //   children: [
-          //     Image.asset(
-          //       webBack,
-          //       height: screenHeight,
-          //       width: screenWidth,
-          //     ),
-          //
-          //   ],
-          // ),
         );
       }
     }));
@@ -432,9 +412,9 @@ class _HomeScreenState extends State<HomeScreen> {
               description: sophiaDes,
             ),
             ProjectCard(
-              title: 'FitJerk',
-              url: 'https://github.com/KafiulIslam/fitjerk_android',
-              description: fitJerkDes,
+              title: 'Wifi QR Code Scanner',
+              url: 'https://github.com/orgs/UX-Living-Lab-Flutter-flow-projects/teams/wifi-qr-code-developement',
+              description: wifiQRCodeDes,
             ),
           ],
         ),
@@ -442,6 +422,11 @@ class _HomeScreenState extends State<HomeScreen> {
         const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            ProjectCard(
+              title: 'FitJerk',
+              url: 'https://github.com/KafiulIslam/fitjerk_android',
+              description: fitJerkDes,
+            ),
             ProjectCard(
               title: 'Global News',
               url: 'https://github.com/KafiulIslam/online_news',
@@ -452,13 +437,24 @@ class _HomeScreenState extends State<HomeScreen> {
               url: 'https://github.com/KafiulIslam/wed_plan',
               description: wedPlanDes,
             ),
-            ProjectCard(
-              title: 'BMI Meter',
-              url: 'https://github.com/KafiulIslam/body_mass_index',
-              description: bmiDes,
-            ),
           ],
         ),
+        primaryVSpacer,
+        //   Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //   children: [
+        //     ProjectCard(
+        //       title: 'BMI Meter',
+        //       url: 'https://github.com/KafiulIslam/body_mass_index',
+        //       description: bmiDes,
+        //     ),
+        //     ProjectCard(
+        //       title: 'Weather Check',
+        //       url: 'https://github.com/KafiulIslam/body_mass_index',
+        //       description: bmiDes,
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }
@@ -483,12 +479,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 description: batchAppDes,
                 image: batchIcon),
             AppCard(
-                title: 'FitJerk',
+                title: 'Wifi QR Code Scanner',
                 downloadUrl:
-                    'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
-                previewUrl: 'https://youtu.be/hU2QY7KJ0rs',
-                description: fitJerkDes,
-                image: fitJerkIcon),
+                    'https://play.google.com/store/apps/details?id=com.dowell.wifiqrcode',
+                previewUrl: '',
+                description: wifiQRCodeDes,
+                image: wifiQRCode),
           ],
         ),
         primaryVSpacer,
@@ -518,6 +514,13 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppCard(
+                title: 'FitJerk',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
+                previewUrl: 'https://youtu.be/hU2QY7KJ0rs',
+                description: fitJerkDes,
+                image: fitJerkIcon),
+            AppCard(
               title: 'BMI Meter',
               downloadUrl:
                   'https://play.google.com/store/apps/details?id=com.bmi.meter',
@@ -526,15 +529,106 @@ class _HomeScreenState extends State<HomeScreen> {
               image: bmiAppIcon,
               imageSize: 150,
             ),
+            // AppCard(
+            //   title: 'Weather Check',
+            //   downloadUrl:
+            //       'https://play.google.com/store/apps/details?id=com.weather.check.app',
+            //   previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+            //   description: weatherAppDes,
+            //   image: weatherAppIcon,
+            //   imageSize: 150,
+            // ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Column _liveAppsForSmallScreen() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Live Apps',
+          style: header1,
+        ),
+        sixteenVSpacer,
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
             AppCard(
-              title: 'Weather Check',
+              title: 'Batch Learn',
               downloadUrl:
-                  'https://play.google.com/store/apps/details?id=com.weather.check.app',
+              'https://play.google.com/store/apps/details?id=com.batch_learn.axisedu',
               previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-              description: weatherAppDes,
-              image: weatherAppIcon,
-              imageSize: 150,
+              description: batchAppDes,
+              image: batchIcon,
+              isLarge: false,
             ),
+            AppCard(
+                title: 'Wifi QR Code Scanner',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.dowell.wifiqrcode',
+                previewUrl: '',
+                description: wifiQRCodeDes,
+                image: wifiQRCode,
+                isLarge: false,
+            ),
+          ],
+        ),
+        primaryVSpacer,
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            AppCard(
+                title: 'Sophia',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.kafi.sophia',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: sophiaAppDes,
+                image: sophiaAppIcon,
+                isLarge: false),
+            AppCard(
+                title: 'Global News',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.kafi.globalnews',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: globalNewsAppDes,
+                image: newsAppIcon,
+                imageSize: 150,
+                isLarge: false),
+          ],
+        ),
+        primaryVSpacer,
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            AppCard(
+                title: 'FitJerk',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
+                previewUrl: 'https://youtu.be/hU2QY7KJ0rs',
+                description: fitJerkDes,
+                image: fitJerkIcon,
+                isLarge: false),
+            AppCard(
+                title: 'BMI Meter',
+                downloadUrl:
+                'https://play.google.com/store/apps/details?id=com.bmi.meter',
+                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+                description: bmiAppdes,
+                image: bmiAppIcon,
+                imageSize: 150,
+                isLarge: false),
+            // AppCard(
+            //     title: 'Weather Check',
+            //     downloadUrl:
+            //     'https://play.google.com/store/apps/details?id=com.weather.check.app',
+            //     previewUrl: 'https://youtu.be/Wb3CuCauGJk',
+            //     description: weatherAppDes,
+            //     image: weatherAppIcon,
+            //     imageSize: 150,
+            //     isLarge: false),
           ],
         ),
       ],
@@ -626,88 +720,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         )
-      ],
-    );
-  }
-
-  Column _liveAppsForSmallScreen() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Live Apps',
-          style: header1,
-        ),
-        sixteenVSpacer,
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AppCard(
-              title: 'Batch Learn',
-              downloadUrl:
-                  'https://play.google.com/store/apps/details?id=com.batch_learn.axisedu',
-              previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-              description: batchAppDes,
-              image: batchIcon,
-              isLarge: false,
-            ),
-            AppCard(
-                title: 'FitJerk',
-                downloadUrl:
-                    'https://play.google.com/store/apps/details?id=com.kamoon.fitjerk',
-                previewUrl: 'https://youtu.be/hU2QY7KJ0rs',
-                description: fitJerkDes,
-                image: fitJerkIcon,
-                isLarge: false),
-          ],
-        ),
-        primaryVSpacer,
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AppCard(
-                title: 'Sophia',
-                downloadUrl:
-                    'https://play.google.com/store/apps/details?id=com.kafi.sophia',
-                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-                description: sophiaAppDes,
-                image: sophiaAppIcon,
-                isLarge: false),
-            AppCard(
-                title: 'Global News',
-                downloadUrl:
-                    'https://play.google.com/store/apps/details?id=com.kafi.globalnews',
-                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-                description: globalNewsAppDes,
-                image: newsAppIcon,
-                imageSize: 150,
-                isLarge: false),
-          ],
-        ),
-        primaryVSpacer,
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AppCard(
-                title: 'BMI Meter',
-                downloadUrl:
-                    'https://play.google.com/store/apps/details?id=com.bmi.meter',
-                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-                description: bmiAppdes,
-                image: bmiAppIcon,
-                imageSize: 150,
-                isLarge: false),
-            AppCard(
-                title: 'Weather Check',
-                downloadUrl:
-                    'https://play.google.com/store/apps/details?id=com.weather.check.app',
-                previewUrl: 'https://youtu.be/Wb3CuCauGJk',
-                description: weatherAppDes,
-                image: weatherAppIcon,
-                imageSize: 150,
-                isLarge: false),
-          ],
-        ),
       ],
     );
   }
