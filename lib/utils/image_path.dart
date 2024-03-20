@@ -23,6 +23,8 @@ const String webBack = 'assets/images/web_back.png';
 const String node = 'assets/images/node-js.png';
 const String express = 'assets/images/express.png';
 const String mongo = 'assets/images/mongoDB.png';
+const String appwrite = 'assets/images/Appwrite-logo.png';
+const String graphQl = 'assets/images/graphql.png';
 
 
 

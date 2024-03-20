@@ -65,7 +65,7 @@ class AppCard extends StatelessWidget {
                       buttonTitle: 'Preview',
                       icon: Icons.play_circle_outline,
                       url: previewUrl,
-                    ) : SizedBox.shrink(),
+                    ) : const SizedBox.shrink(),
                   ],
                 )
               ],

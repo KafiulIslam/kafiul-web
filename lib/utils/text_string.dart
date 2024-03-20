@@ -5,8 +5,10 @@ const String linkedIn =
     'https://www.linkedin.com/in/md-kafiul-islam-902229230/';
 const String resume =
     'https://drive.google.com/file/d/1LkuKLGuXWfiBYEO-nPZaR0x34q-Uff8U/view?usp=sharing';
+const String lucidDes =
+    "Currently I am working for Lucid. This is a Kuwaitian Software development firm. I am working with them as flutter developer. I am working on so many projects for them. Basically, I am playing the head app developer role in Lucid which gives me so learning opportunities. I am enjoying the new role, more work pressure with more growth opportunities.";
 const String dowelDes =
-    "Currently I am working for Dowell Research Lab, Singapore branch. I am working with them as flutter developer. My current project is in building in FlutterFlow. So, I am building the current app using FlutterFlow. I am enjoying wokring with a new stack and a new dynamic team.";
+    "I was working for Dowell Research Lab, Singapore branch. I am working with them as flutter developer. My current project is in building in FlutterFlow. So, I am building the current app using FlutterFlow. I am enjoying wokring with a new stack and a new dynamic team.";
 const String boomDevsDes =
     "I have got the chance of working in a renown company named BoomDevs. I have learnt so many things from the journey with BoomDevs. I have built three complex and gigantic projects for their clients which increased my skill level as well as confidence. I handle the whole project alone with having pixel perfect responsive UI building, implementing flutter animation, make the app fully function and integrate API using Dio.";
 const String pandaDes =

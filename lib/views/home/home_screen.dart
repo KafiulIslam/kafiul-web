@@ -233,6 +233,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Column _techStack() {
+
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -243,94 +246,109 @@ class _HomeScreenState extends State<HomeScreen> {
         sixteenVSpacer,
         Card(
           elevation: 5,
-          color: white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-          child: const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: white,),
+            child: Stack(children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(10.0),bottomLeft: Radius.circular(10.0),),
+                  child: Image.asset('assets/images/design.png', height: 300,)),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    StackItem(
-                      imagePath: flutter,
-                      name: 'Flutter',
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        StackItem(
+                          imagePath: flutter,
+                          name: 'Flutter',
+                        ),
+                        StackItem(
+                          imagePath: dart,
+                          name: 'Dart',
+                        ),
+                        StackItem(
+                          imagePath: firebase,
+                          name: 'Firebase',
+                        ),
+                        StackItem(
+                          imagePath: flutterFlow,
+                          name: 'FlutterFlow',
+                        ),
+                        StackItem(
+                          imagePath: node,
+                          name: 'Node js',
+                        ),
+                        StackItem(
+                          imagePath: express,
+                          name: 'Express js',
+                        ),
+                        StackItem(
+                          imagePath: mongo,
+                          name: 'MongoDB',
+                        ),
+                        StackItem(
+                          imagePath: appwrite,
+                          name: 'Appwrite',
+                        ),
+                      ],
                     ),
-                    StackItem(
-                      imagePath: dart,
-                      name: 'Dart',
-                    ),
-                    StackItem(
-                      imagePath: firebase,
-                      name: 'Firebase',
-                    ),
-                    StackItem(
-                      imagePath: flutterFlow,
-                      name: 'FlutterFlow',
-                    ),
-                    StackItem(
-                      imagePath: node,
-                      name: 'Node js',
-                    ),
-                    StackItem(
-                      imagePath: express,
-                      name: 'Express js',
-                    ),
-                    StackItem(
-                      imagePath: mongo,
-                      name: 'MongoDB',
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    StackItem(
-                      imagePath: javascript,
-                      name: 'Javascript',
-                    ),
-                    StackItem(
-                      imagePath: html,
-                      name: 'HTML',
-                    ),
-                    StackItem(
-                      imagePath: css,
-                      name: 'CSS',
-                    ),
-                    StackItem(
-                      imagePath: c,
-                      name: 'C',
-                    ),
-                    StackItem(
-                      imagePath: cPlus,
-                      name: "C++",
-                    ),
-                    StackItem(
-                      imagePath: github,
-                      name: "GitHub",
-                    ),
-                    StackItem(
-                      imagePath: androidStudio,
-                      name: "Android\nStudio",
-                    ),
-                    StackItem(
-                      imagePath: vsCode,
-                      name: 'VS Code',
-                    ),
-                    StackItem(
-                      imagePath: figma,
-                      name: 'Figma',
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        StackItem(
+                          imagePath: graphQl,
+                          name: 'GraphQL',
+                        ),
+                        StackItem(
+                          imagePath: javascript,
+                          name: 'Javascript',
+                        ),
+                        StackItem(
+                          imagePath: html,
+                          name: 'HTML',
+                        ),
+                        StackItem(
+                          imagePath: css,
+                          name: 'CSS',
+                        ),
+                        StackItem(
+                          imagePath: c,
+                          name: 'C',
+                        ),
+                        StackItem(
+                          imagePath: cPlus,
+                          name: "C++",
+                        ),
+                        StackItem(
+                          imagePath: github,
+                          name: "GitHub",
+                        ),
+                        StackItem(
+                          imagePath: androidStudio,
+                          name: "Android\nStudio",
+                        ),
+                        StackItem(
+                          imagePath: vsCode,
+                          name: 'VS Code',
+                        ),
+                        StackItem(
+                          imagePath: figma,
+                          name: 'Figma',
+                        )
+                      ],
                     )
                   ],
-                )
-              ],
-            ),
+                ),
+              ),
+            ],),
           ),
         ),
       ],
@@ -351,17 +369,17 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             ExperienceCard(
               title: 'Flutter Developer',
-              date: 'April 2023 - Present',
+              date: 'October 2023 - Present',
+              companyName: 'Lucid',
+              url: 'https:lucid.com',
+              description: lucidDes,
+            ),
+            ExperienceCard(
+              title: 'Flutter Developer',
+              date: 'April 2023 - Sept 2023',
               companyName: 'Dowell Research Lab',
               url: 'https://dowellresearch.sg/',
               description: dowelDes,
-            ),
-            ExperienceCard(
-              title: 'Flutter iOS & Android Developer',
-              date: 'July 2022 - March 2023',
-              companyName: 'BoomDevs',
-              url: 'https://boomdevs.com/',
-              description: boomDevsDes,
             ),
           ],
         ),
@@ -371,11 +389,24 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             ExperienceCard(
               title: 'Flutter iOS & Android Developer',
+              date: 'July 2022 - March 2023',
+              companyName: 'BoomDevs',
+              url: 'https://boomdevs.com/',
+              description: boomDevsDes,
+            ),
+            ExperienceCard(
+              title: 'Flutter iOS & Android Developer',
               date: 'March 2022 - July 2022',
               companyName: 'Pandascrow',
               url: 'https://pandascrow.io/',
               description: pandaDes,
             ),
+          ],
+        ),
+        primaryVSpacer,
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
             ExperienceCard(
               title: 'Flutter iOS & Android Developer',
               date: 'February 2022 - Present ',
@@ -553,13 +584,12 @@ class _HomeScreenState extends State<HomeScreen> {
           style: header1,
         ),
         sixteenVSpacer,
-        const Row(
+          const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppCard(
               title: 'Batch Learn',
-              downloadUrl:
-              'https://play.google.com/store/apps/details?id=com.batch_learn.axisedu',
+              downloadUrl: 'https://play.google.com/store/apps/details?id=com.batch_learn.axisedu',
               previewUrl: 'https://youtu.be/Wb3CuCauGJk',
               description: batchAppDes,
               image: batchIcon,
