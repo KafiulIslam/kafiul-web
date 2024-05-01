@@ -15,6 +15,18 @@ const String pandaDes =
     "I have got the chance to work with a multinational Nigerian company named Pandascrow. Basically, it was a three months internship opportunity. Basically, working with pandascrow make my development base stronger. Because there were some senior, expert and genious developer. I learnt various flutter best practices, I learnt to manage work pressure, client handling, proper comunitcating.";
 const String upworkDes =
     "I have been working at Upwork online freelancing market place. I have built so many projects in Upwork with 100% client satisfaction. Though working in market place is so challenging but I am ready to convert your idea into reality. Feel free to knock me in Upwork and share your concern";
+const String kocartDes =
+    'Kocart is an online E-Commerce app where user will variant types of beauty products. I built this app for Lucid\'s client as full-time developer of Lucid. I integrated GraphQL as backend in this project.';
+const String taskRMDes =
+    'This is an online TODO app. User can write down his working plan day by day and implement all according to. TaskRM will help user to track the work schedule. I implement AppWrite as backend in this project.';
+const String ctDes =
+    'Creative Teacher is an online E-Commerce app where user will get education equipment. I built this app for Lucid\'s client as full-time developer of Lucid. From UI development, I have integrated all API, payment method, push notification, Google Map, Shipping process and so on.';
+const String faceInDes =
+    'FaceInPlace app is for driver attendance management. I have implemented Google map, location permission, local auth/biometric verification of user in this app.';
+const String tripperDes =
+    'Tripper is an online tourist guiding app. This works for tourists to find tourists places and all other stuff like Hotel, Restaurant and so on. I built this app for Lucid\'s client as full-time developer of Lucid. From UI development, I have integrated all API, payment method, push notification, Google Map and so on.';
+const String baytshopDes =
+    'BaytShop is an online E-Commerce app. I built the whole app for both iOS and Android alone. I built this app for Lucid\'s client as full-time developer of Lucid. From UI development, I have integrated all API, payment method, push notification, Google Map and so on.';
 const String batchLearnDes =
     "Batch learn is an online educational platform. I build the whole project alone. I build Responsive, pixel-perfect UI, integrated payment gateway with flutter stripe, integrated REST API through Dio and make the app fully functional. To build the app I rely on Figma, GitHub, Android Studio, and so on.";
 const String wifiQRCodeDes =

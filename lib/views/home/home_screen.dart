@@ -433,6 +433,48 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ProjectCard(
+              title: 'Kocart',
+              url: '',
+              description: kocartDes,
+            ),
+            ProjectCard(
+              title: 'TaskRM',
+              url: '',
+              description: taskRMDes,
+            ),
+            ProjectCard(
+              title: 'Creative Teacher',
+              url: '',
+              description: ctDes,
+            ),
+          ],
+        ),
+        primaryVSpacer,
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ProjectCard(
+              title: 'FaceInPlace',
+              url: '',
+              description: faceInDes,
+            ),
+            ProjectCard(
+              title: 'Tripper',
+              url: '',
+              description: tripperDes,
+            ),
+            ProjectCard(
+              title: 'BaytShop',
+              url: '',
+              description: baytshopDes,
+            ),
+          ],
+        ),
+        primaryVSpacer,
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ProjectCard(
               title: 'Batch Learn',
               url: 'https://github.com/boom-devs/batch-learn-mobile',
               description: batchLearnDes,
